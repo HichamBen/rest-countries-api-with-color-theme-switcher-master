@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./public/images/earth-icon.png">
+    <!-- font awsome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- Custom CSS -->
+    <!-- Main style -->
+    <link rel="stylesheet" href="./public/CSS/main.css">
+
+    <!-- Responsive style -->
+    <link rel="stylesheet" href="./public/CSS/mobile.css" media="screen and (max-width:900px)">
+
+    <!-- Script fo changing mode -->
+    <script src="./public/Script/select_mode.js" defer></script>
+
+    <!-- Script fo handling API -->
+    <script src="./public/Script/handle_api.js" defer></script>
+
+    <title>REST Countries API with color theme switcher</title>
+</head>
+
+<body>
+    <header>
+        <h1>Where in the world?</h1>
+        <nav>
+            <i class="fal fa-moon"></i>
+            <!-- <i class="fas fa-moon"></i> -->
+            <span>Dark Mode</span>
+        </nav>
+    </header>
+
+    <main class="main-homeP">
+        <form action="home.html" method="post" id="form">
+            <button type="submit"><i class="far fa-search"></i></button>
+            <input type="search" name="keyWord" placeholder="Search for a country..." autocomplete="off">
+            <select name="filter" onchange="select_Continent(this.value)">
+                <option value="filter">Filter by Region</option>
+                <option value="africa">Africa</option>
+                <option value="americas">America</option>
+                <option value="asia">Asia</option>
+                <option value="europe">Europe</option>
+                <option value="oceania">Oceania</option>
+            </select>
+        </form>
+        <section class="cards-holder">
+
+        </section>
+    </main>
+</body>
+
+</html>

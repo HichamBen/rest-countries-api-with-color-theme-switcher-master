@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+:root {
+    --darkB: hsl(200, 15%, 8%);
+    --darkG: hsl(0, 0%, 52%);
+    --lightG: hsl(0, 0%, 98%);
+    --white: white;
+    --boxShadow: hsl(0, 0%, 95%);
+    --lightGr: hsl(0, 0%, 98%);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+    margin: 0;
+    width: 1440px;
+}
+
+/* Formating header */
+
+header {
+    background-color: var(--white);
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    box-shadow: 0 2px 2px var(--lightGr);
+    color: var(--darkB);
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+nav {
+    font-weight: 600;
+}
+
+nav:hover, .card-details>h2:hover {
+    cursor: pointer;
+    color: hsl(0, 0%, 52%);
+    ;
+}
+
+
+/* HOME PAGE ↓ */
+
+/* Formating main section in home page */
+
+.main-homeP {
+    background-color: var(--lightG);
+    padding: 40px 80px;
+}
+
+form {
+    position: relative;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 50px;
+    top: 53px;
+}
+
+#search {
+    width: 430px;
+    padding: 10px 25px;
+    background-color: var(--white);
+    list-style: none;
+    color: var(--darkB);
+}
+
+input {
+    width: 430px;
+    font-weight: 600;
+    padding: 16px;
+    font-size: 16px;
+    background-color: var(--white);
+    color: var(--darkB);
+    border: none;
+    outline: none;
+    float: left;
+}
+
+::placeholder {
+    color: var(--darkG);
+    font-size: 14px;
+}
+
+form>button {
+    background-color: var(--white);
+    color: var(--darkB);
+    width: 50px;
+    border: none;
+    font-weight: 600;
+    padding: 18px;
+    float: left;
+}
+
+
+form>button:hover, #search:hover, #search:focus {
+    background-color: var(--darkB);
+    color: var(--white);
+    cursor: pointer;
+    outline: none;
+}
+
+select {
+    background-color: var(--white);
+    float: right;
+    width: 200px;
+    font-weight: 600;
+    padding: 18px 15px;
+    border: none;
+    border-right: 15px solid var(--white);
+    color: var(--darkB);
+    outline-color: var(--darkG);
+}
+
+
+/* Formating cards section  */
+.cards-holder {
+    clear: both;
+    padding-top: 52px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(260px, 1fr));
+    grid-gap: 72px;
+    color: var(--darkB);
+
+}
+
+.country-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px var(--boxShadow),
+        -5px 0 5px var(--boxShadow),
+        0 -5px 5px var(--boxShadow);
+    pointer-events: none;
+
+}
+
+.country-card>img {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: 45%;
+    box-shadow: 0 2px 2px var(--lightGr);
+    pointer-events: auto;
+}
+
+
+.country-card>img:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.card-details {
+    font-size: 14px;
+    padding-left: 20px;
+
+}
+
+
+.card-details>h2 {
+    font-size: 18px;
+    pointer-events: auto;
+
+}
+
+/* Icone to waiting the API data loading */
+.download {
+    width: 80px;
+    height: 80px;
+    border: 10px dotted lightskyblue;
+    border-top: 10px dotted transparent;
+    position: relative;
+    left: 50%;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    form {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* *********************************************************************** */
+/* *********************************************************************** */
+/* *********************************************************************** */
+
+/* DETAIL PAGE ↓ */
+
+.main-detailP {
+    padding: 80px;
+    background-color: var(--lightG);
+
+}
+
+#returnBtn_homeP {
+    border: none;
+    background-color: var(--lightGr);
+    color: var(--darkB);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 50px;
+    box-shadow: 3px 3px 3px var(--boxShadow),
+        -3px 0 3px var(--boxShadow),
+        0 -3px 3px var(--boxShadow);
+}
+
+#returnBtn_homeP:hover {
+    color: var(--white);
+    background-color: var(--darkB);
+    cursor: pointer;
+}
+
+
+.detailP {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: var(--darkB);
+}
+
+.detailP>img {
+    width: 560px;
+    height: 400px;
+}
+
+.detailP-countryInfo {
+    width: 560px;
+}
+
+.detailP-countryInfo>h2 {
+    font-size: 32px;
+}
+
+span {
+    font-weight: 600;
+}
+
+.flex-countryInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.border-country {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 150px auto;
+    pointer-events: none;
+
+}
+
+#borders>button {
+    padding: 5px 25px;
+    margin-bottom: 10px;
+    margin-right: 15px;
+    background-color: var(--lightGr);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    color: var(--darkB);
+    box-shadow: 5px 5px 5px var(--boxShadow),
+        -5px 0 5px var(--boxShadow),
+        0 -5px 5px var(--boxShadow);
+    pointer-events: auto;
+}
+
+#borders>button:hover {
+    cursor: pointer;
+    background-color: var(--darkB);
+    color: var(--white);
+
+}

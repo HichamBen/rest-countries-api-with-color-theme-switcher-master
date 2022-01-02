@@ -1,0 +1,139 @@
+/* Formating header */
+
+header, .main-homeP {
+    padding: 30px 16px;
+}
+
+
+/* HOME PAGE */
+
+/* Formating main section */
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 300px;
+    position: relative;
+    left: 42px;
+    top: -54px;
+}
+
+#search {
+    width: 292px;
+}
+
+form>button {
+    width: 40px;
+    padding-left: 24px;
+}
+
+
+/* DETAIL PAGE */
+
+.main-detailP {
+    padding: 40px 28px;
+}
+
+.detailP {
+    flex-direction: column;
+}
+
+#returnBtn_homeP {
+    padding: 10px 25px;
+}
+
+.detailP-countryInfo>h2 {
+    font-size: 1.5rem;
+}
+
+.border-country {
+    margin-top: 40px;
+}
+
+.border-country>span {
+    display: block;
+    margin-bottom: 15px;
+}
+
+#borders>button {
+    font-weight: 300;
+}
+
+@media screen and (max-width:627px) {
+    body {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1rem;
+        font-weight: 800;
+    }
+
+    nav {
+        font-weight: 600;
+        font-size: 0.75rem;
+    }
+
+    /* Formating cards section  */
+
+    .cards-holder {
+        display: grid;
+        grid-template-columns: minmax(264px, 70%);
+        grid-row: 72px auto;
+        justify-content: center;
+    }
+
+    /* DETAIL PAGE */
+    .flex-countryInfo {
+        flex-direction: column;
+    }
+
+    .detailP>img, .detailP-countryInfo {
+        width: 320px;
+        height: auto;
+        margin: auto;
+    }
+
+
+}
+
+
+@media screen and (min-width:628px) and (max-width:900px) {
+
+    body {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+        font-weight: 800;
+    }
+
+    nav {
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    /* Formating cards section  */
+    .cards-holder {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(264px, 70%));
+        grid-row: 72px auto;
+    }
+
+    /* DETAIL PAGE */
+    .flex-countryInfo {
+        flex-direction: wrap;
+    }
+
+
+    .detailP>img, .detailP-countryInfo {
+        height: auto;
+        margin: auto;
+
+    }
+
+}
