@@ -38,9 +38,9 @@
 
     <main class="main-homeP">
         <form action="home.html" method="post" id="form">
-            <button type="submit"><i class="far fa-search"></i></button>
+            <button type="submit" aria-label="Search-icon"><i class="far fa-search"></i></button>
             <input type="search" name="keyWord" placeholder="Search for a country..." autocomplete="off">
-            <select name="filter" onchange="select_Continent(this.value)">
+            <select name="filter" aria-label="Continents" onchange="select_Continent(this.value)">
                 <option value="filter">Filter by Region</option>
                 <option value="africa">Africa</option>
                 <option value="americas">America</option>
