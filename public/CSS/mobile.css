@@ -5,7 +5,7 @@ body {
 /* Formating header */
 
 header, .main-homeP {
-    padding: 30px 50px;
+    padding: 30px 35px;
 }
 
 /* DETAIL PAGE */
@@ -14,35 +14,42 @@ header, .main-homeP {
     padding: 40px 28px;
 }
 
-.detailP {
-    flex-direction: column;
-}
 
-#returnBtn_homeP {
-    padding: 10px 25px;
-}
+@media screen and (max-width:1200px) {
 
-.detailP-countryInfo>h2 {
-    font-size: 1.5rem;
-}
+    .detailP {
+        flex-direction: column;
+    }
+    
+    #returnBtn_homeP {
+        padding: 10px 25px;
+    }
+    
+    .detailP>img, .detailP-countryInfo {
+        height: auto;
+        margin: auto;
 
-.border-country {
-    margin-top: 40px;
-}
-
-.border-country>span {
-    display: block;
-    margin-bottom: 15px;
-}
-
-#borders>button {
-    font-weight: 300;
+    }
+    .detailP-countryInfo>h2 {
+        font-size: 1.5rem;
+    }
+    
+    .border-country {
+        margin-top: 40px;
+    }
+    
+    .border-country>span {
+        display: block;
+        margin-bottom: 15px;
+    }
+    
+    #borders>button {
+        font-weight: 300;
+    }
+    
 }
 
 @media screen and (max-width:627px) {
-    body {
-        width: 100%;
-    }
 
     h1 {
         font-size: 1rem;
@@ -58,10 +65,6 @@ header, .main-homeP {
 
 
 @media screen and (min-width:628px) and (max-width:900px) {
-
-    body {
-        width: 100%;
-    }
 
     h1 {
         font-size: 1.25rem;
