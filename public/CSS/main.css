@@ -129,8 +129,9 @@ select {
     clear: both;
     padding-top: 52px;
     display: grid;
-    grid-template-columns: repeat(4, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(264px, 0.4fr));
     grid-gap: 72px;
+    justify-content: center;
     color: var(--darkB);
 
 }
