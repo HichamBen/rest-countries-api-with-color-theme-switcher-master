@@ -8,9 +8,6 @@ const listOfResearch = document.createElement("ul"); // Hold suggestions when yo
 // This map used when detail page rendered and setted when render_homePage function called.
 const alphaCode_borders = new Map();
 
-// variable holds response from api used when back button clicked in detail page...↓
-// to avoid a new api request that's mean less time:
-let holdData;
 
 // Call uploadData function to upload countries cards in home page:
 uploadData("https://restcountries.com/v2/all", render_homePage);
@@ -34,32 +31,37 @@ function uploadData(url, callback) {
 
 //Renders country cards in home page: 
 function render_homePage(xhttp) {
-    holdData = xhttp;
+
     const res = JSON.parse(xhttp.responseText);
 
     // Empty cards_holder section when response got:   
     cards_holder.innerHTML = "";
 
     for (let i = 0; i < res.length; i++) {
-
-        // Destructuring assignment api response:  
-        let { name, capital, region, population, flags: { png }, alpha3Code } = res[i];
-
-        alphaCode_borders.set(alpha3Code, name);
+        if (alphaCode_borders.size <= 250) {
+            alphaCode_borders.set(res[i].alpha3Code, res[i].name);
+        }
 
         // Rendering cards_holder section:   
         cards_holder.innerHTML += `<div class="country-card">
-        <img  src="${png}" alt="${name}"> 
+        <img  src="${res[i].flags.png}" alt="${res[i].name}"> 
         <div class="card-details">
-            <h2>${name}</h2>
-            <p><span>Population</span>: ${population}</p>
-            <p><span>Region</span>: ${region}</p>
-            <p><span>Capital</span>: ${capital}</p>
+            <h2>${res[i].name}</h2>
+            <p><span>Population</span>: ${res[i].population}</p>
+            <p><span>Region</span>: ${res[i].region}</p>
+            <p><span>Capital</span>: ${res[i].capital}</p>
         </div>
      </div>`
     }
 
-    // Add click event to country cards (images and countries names) in home page:
+   // Add click event to country cards (images and countries names) in home page:
+   addClick_toCards();
+
+   // Function handle width input and submit button elements in the form:
+   setSuggestion();
+}
+
+function addClick_toCards() {
     let cards = document.getElementsByClassName("country-card");
     for (let i = 0; i < cards.length; i++) {
         cards[i].addEventListener("click", function (event) {
@@ -67,9 +69,6 @@ function render_homePage(xhttp) {
             uploadData(`https://restcountries.com/v2/name/${hold_CountryName}`, setDetailPage);
         });
     }
-
-    // Function handle width input and submit button elements in the form:
-    setSuggestion();
 }
 
 
@@ -165,15 +164,15 @@ function returnTo_homeP() {
     </select>
 </form>
 <section class="cards-holder">
-     
+${cards_holder.innerHTML}
 </section> `
 
+    addClick_toCards();
     // Reinitialize cards_holder section and form to refer actual elements:
     cards_holder = document.querySelector(".cards-holder");
     form = document.getElementById("form")
 
-    // Call render_homePage:
-    render_homePage(holdData);
+    setSuggestion();
 }
 
 
@@ -240,7 +239,7 @@ function select_Continent(continent) {
             holdContinent = oceania;
             break;
         default:
-            cards_holder.innerHTML = "";
+            cards_holder.innerHTML = `<div class="download"></div>`;
             uploadData("https://restcountries.com/v2/all", render_homePage);
             return;
     }
@@ -272,7 +271,6 @@ function select_Continent(continent) {
         let hold_CountryName = (event.target.alt) ? event.target.alt : event.target.textContent;
         uploadData(`https://restcountries.com/v2/name/${hold_CountryName}`, setDetailPage);
     });
-
 }
 
 
@@ -293,7 +291,7 @@ function setSuggestion() {
 
     // Add suggestions when searching for country:
     form.elements["keyWord"].addEventListener("input", function (event) {
-        let inputText = form.elements["keyWord"].value;
+        let inputText = form.elements["keyWord"].value.toLowerCase();
         let length_OfInputText = inputText.length;
 
         if (length_OfInputText >= 0) {
